@@ -1,0 +1,9 @@
+diff a/stm_code/Core/Src/main.c b/stm_code/Core/Src/main.c	(rejected hunks)
+@@ -94,6 +94,7 @@
+   /* USER CODE BEGIN WHILE */
+   while (1)
+   {
++	  //todo something ex1
+     /* USER CODE END WHILE */
+ 
+     /* USER CODE BEGIN 3 */
