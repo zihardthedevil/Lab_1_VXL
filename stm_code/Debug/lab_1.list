@@ -737,10 +737,10 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LED_1_Pin|LED_2_Pin|LED_3_Pin|LED_11_Pin
  8000634:	2200      	movs	r2, #0
- 8000636:	f640 71ff 	movw	r1, #4095	@ 0xfff
+ 8000636:	f648 71ff 	movw	r1, #36863	@ 0x8fff
  800063a:	4814      	ldr	r0, [pc, #80]	@ (800068c <MX_GPIO_Init+0xa8>)
  800063c:	f000 fb8e 	bl	8000d5c <HAL_GPIO_WritePin>
-                          |LED_7_Pin|LED_8_Pin|LED_9_Pin|LED_10_Pin, GPIO_PIN_RESET);
+                          |LED_10_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin SEG_0_Pin SEG_1_Pin
                            SEG_2_Pin SEG_3_Pin SEG_4_Pin SEG_5_Pin
@@ -766,13 +766,15 @@ static void MX_GPIO_Init(void)
  800065a:	f000 fa03 	bl	8000a64 <HAL_GPIO_Init>
 
   /*Configure GPIO pins : LED_1_Pin LED_2_Pin LED_3_Pin LED_11_Pin
-                           LED_12_Pin LED_4_Pin LED_5_Pin LED_6_Pin
-                           LED_7_Pin LED_8_Pin LED_9_Pin LED_10_Pin */
+                           LED_12_Pin PB15 LED_4_Pin LED_5_Pin
+                           LED_6_Pin LED_7_Pin LED_8_Pin LED_9_Pin
+                           LED_10_Pin */
   GPIO_InitStruct.Pin = LED_1_Pin|LED_2_Pin|LED_3_Pin|LED_11_Pin
- 800065e:	f640 73ff 	movw	r3, #4095	@ 0xfff
+ 800065e:	f648 73ff 	movw	r3, #36863	@ 0x8fff
  8000662:	60bb      	str	r3, [r7, #8]
-                          |LED_12_Pin|LED_4_Pin|LED_5_Pin|LED_6_Pin
-                          |LED_7_Pin|LED_8_Pin|LED_9_Pin|LED_10_Pin;
+                          |LED_12_Pin|GPIO_PIN_15|LED_4_Pin|LED_5_Pin
+                          |LED_6_Pin|LED_7_Pin|LED_8_Pin|LED_9_Pin
+                          |LED_10_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
  8000664:	2301      	movs	r3, #1
  8000666:	60fb      	str	r3, [r7, #12]

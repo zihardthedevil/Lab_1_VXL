@@ -265,8 +265,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LED_1_Pin|LED_2_Pin|LED_3_Pin|LED_11_Pin
-                          |LED_12_Pin|LED_4_Pin|LED_5_Pin|LED_6_Pin
-                          |LED_7_Pin|LED_8_Pin|LED_9_Pin|LED_10_Pin, GPIO_PIN_RESET);
+                          |LED_12_Pin|GPIO_PIN_15|LED_4_Pin|LED_5_Pin
+                          |LED_6_Pin|LED_7_Pin|LED_8_Pin|LED_9_Pin
+                          |LED_10_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin SEG_0_Pin SEG_1_Pin
                            SEG_2_Pin SEG_3_Pin SEG_4_Pin SEG_5_Pin
@@ -280,11 +281,13 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LED_1_Pin LED_2_Pin LED_3_Pin LED_11_Pin
-                           LED_12_Pin LED_4_Pin LED_5_Pin LED_6_Pin
-                           LED_7_Pin LED_8_Pin LED_9_Pin LED_10_Pin */
+                           LED_12_Pin PB15 LED_4_Pin LED_5_Pin
+                           LED_6_Pin LED_7_Pin LED_8_Pin LED_9_Pin
+                           LED_10_Pin */
   GPIO_InitStruct.Pin = LED_1_Pin|LED_2_Pin|LED_3_Pin|LED_11_Pin
-                          |LED_12_Pin|LED_4_Pin|LED_5_Pin|LED_6_Pin
-                          |LED_7_Pin|LED_8_Pin|LED_9_Pin|LED_10_Pin;
+                          |LED_12_Pin|GPIO_PIN_15|LED_4_Pin|LED_5_Pin
+                          |LED_6_Pin|LED_7_Pin|LED_8_Pin|LED_9_Pin
+                          |LED_10_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
