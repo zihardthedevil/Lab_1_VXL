@@ -94,7 +94,46 @@ void ViTriKim(int num) {
 	    break;
 	}
 }
-
+void clearNumberOnClock(int num) {
+	switch (num) {
+	case 1:
+		    HAL_GPIO_WritePin(LED_1_GPIO_Port,LED_1_Pin,GPIO_PIN_RESET);
+			break;
+		case 2:
+		    HAL_GPIO_WritePin(LED_2_GPIO_Port,LED_2_Pin,GPIO_PIN_RESET);
+		    break;
+		case 3:
+		    HAL_GPIO_WritePin(LED_3_GPIO_Port,LED_3_Pin,GPIO_PIN_RESET);
+		    break;
+		case 4:
+		    HAL_GPIO_WritePin(LED_4_GPIO_Port,LED_4_Pin,GPIO_PIN_RESET);
+		    break;
+		case 5:
+		    HAL_GPIO_WritePin(LED_5_GPIO_Port,LED_5_Pin,GPIO_PIN_RESET);
+		    break;
+		case 6:
+		    HAL_GPIO_WritePin(LED_6_GPIO_Port,LED_6_Pin,GPIO_PIN_RESET);
+		    break;
+		case 7:
+		    HAL_GPIO_WritePin(LED_7_GPIO_Port,LED_7_Pin,GPIO_PIN_RESET);
+		    break;
+		case 8:
+		    HAL_GPIO_WritePin(LED_8_GPIO_Port,LED_8_Pin,GPIO_PIN_RESET);
+		    break;
+		case 9:
+		    HAL_GPIO_WritePin(LED_9_GPIO_Port,LED_9_Pin,GPIO_PIN_RESET);
+		    break;
+		case 10:
+		    HAL_GPIO_WritePin(LED_10_GPIO_Port,LED_10_Pin,GPIO_PIN_RESET);
+		    break;
+		case 11:
+		    HAL_GPIO_WritePin(LED_11_GPIO_Port,LED_11_Pin,GPIO_PIN_RESET);
+		    break;
+		case 12:
+		    HAL_GPIO_WritePin(LED_12_GPIO_Port,LED_12_Pin,GPIO_PIN_RESET);
+		    break;
+	}
+}
 /* USER CODE END 0 */
 
 /**
@@ -137,11 +176,32 @@ int main(void)
   int Giay=32;
   while (1)
   {
-    Phut=Phut/12;
-	Giay=Giay/12;
+	int Giay_On_Clock=Giay/5;
+	int Phut_On_Clock=Phut/5;
+	int Giay_Delete=Giay_On_Clock-1;
+	int Phut_Delete=Phut_On_Clock-1;
+	int Gio_Delete=Gio-1;
+	if (Giay_Delete==0) Giay_Delete=12;
+	if (Phut_Delete==0) Phut_Delete=12;
+	if (Gio_Delete==0) Gio_Delete=12;
+	clearNumberOnClock(Giay_Delete);
+	clearNumberOnClock(Phut_Delete);
+	clearNumberOnClock(Gio_Delete);
+	if (Giay>=61) {
+		Giay=1;
+		Phut++;
+	}
+	if (Phut>61) {
+		Phut=1;
+		Gio++;
+	}
+	if (Gio>12) Gio=1;
+	ViTriKim(Giay_On_Clock);
+	ViTriKim(Phut_On_Clock);
 	ViTriKim(Gio);
-	ViTriKim(Phut);
-	ViTriKim(Giay);
+	Giay++;
+	HAL_Delay(1000);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
