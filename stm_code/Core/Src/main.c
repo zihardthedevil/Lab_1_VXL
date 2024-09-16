@@ -191,7 +191,7 @@ int main(void)
 		Giay=1;
 		Phut++;
 	}
-	if (Phut>61) {
+	if (Phut>=61) {
 		Phut=1;
 		Gio++;
 	}

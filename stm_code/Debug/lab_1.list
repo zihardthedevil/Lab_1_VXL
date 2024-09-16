@@ -481,9 +481,9 @@ int main(void)
  80003e0:	3301      	adds	r3, #1
  80003e2:	61bb      	str	r3, [r7, #24]
 	}
-	if (Phut>61) {
+	if (Phut>=61) {
  80003e4:	69bb      	ldr	r3, [r7, #24]
- 80003e6:	2b3d      	cmp	r3, #61	@ 0x3d
+ 80003e6:	2b3c      	cmp	r3, #60	@ 0x3c
  80003e8:	dd04      	ble.n	80003f4 <main+0xd0>
 		Phut=1;
  80003ea:	2301      	movs	r3, #1
