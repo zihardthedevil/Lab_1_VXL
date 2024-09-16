@@ -321,7 +321,7 @@ int main(void)
 	  	                    counter--;
 
 	  	                }
-	  	                 if (counter <= 3 && counter > 1) {
+	  	                else if (counter <= 3 && counter > 1) {
 	  	                    HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, GPIO_PIN_RESET);
 	  	                    HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, GPIO_PIN_RESET);
 	  	                    HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, GPIO_PIN_SET);
