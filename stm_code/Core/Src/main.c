@@ -171,7 +171,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int Gio=5;
+  int Gio=7;
   int Phut=42;
   int Giay=32;
   while (1)
@@ -184,9 +184,9 @@ int main(void)
 	if (Giay_Delete==0) Giay_Delete=12;
 	if (Phut_Delete==0) Phut_Delete=12;
 	if (Gio_Delete==0) Gio_Delete=12;
-	clearNumberOnClock(Giay_Delete);
-	clearNumberOnClock(Phut_Delete);
-	clearNumberOnClock(Gio_Delete);
+	if (Giay_Delete != Phut_On_Clock && Giay_Delete !=Gio) clearNumberOnClock(Giay_Delete);
+	if (Phut_Delete != Gio && Phut_Delete != Giay_On_Clock) clearNumberOnClock(Phut_Delete);
+	if (Gio_Delete != Phut_On_Clock && Gio_Delete != Giay_On_Clock) clearNumberOnClock(Gio_Delete);
 	if (Giay>=61) {
 		Giay=1;
 		Phut++;
@@ -200,7 +200,7 @@ int main(void)
 	ViTriKim(Phut_On_Clock);
 	ViTriKim(Gio);
 	Giay++;
-	HAL_Delay(1000);
+	HAL_Delay(50);
 
     /* USER CODE END WHILE */
 
