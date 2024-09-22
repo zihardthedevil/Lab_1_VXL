@@ -303,7 +303,7 @@ int main(void)
   {
      switch (LED_Y_CAN_RUN) {
 	  	           case 1:
-	  	                if (counter > 3) {
+	  	                if (counter > 2) {
 	  	                    HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, GPIO_PIN_RESET);
 	  	                    HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, GPIO_PIN_SET);
 	  	                    HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, GPIO_PIN_RESET);
@@ -316,12 +316,10 @@ int main(void)
 	  	                    HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, GPIO_PIN_SET);
 	  	                    HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, GPIO_PIN_RESET);
 	  	                    HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, GPIO_PIN_RESET);
-	  	                    display7SEG_Y(counter-3);
+	  	                    display7SEG_Y(counter-2);
 	  	                    display7SEG_X(counter);
-	  	                    counter--;
-
 	  	                }
-	  	                else if (counter <= 3 && counter > 1) {
+	  	                if (counter <= 2 && counter > 1) {
 	  	                    HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, GPIO_PIN_RESET);
 	  	                    HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, GPIO_PIN_RESET);
 	  	                    HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, GPIO_PIN_SET);
@@ -336,9 +334,8 @@ int main(void)
 	  	                    HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, GPIO_PIN_RESET);
 	  	                    display7SEG_Y(counter);
 	  	                    display7SEG_X(counter);
-	  	                    counter--;
 	  	                }
-	  	                else if (counter <= 1) {
+	  	                if (counter <= 1) {
 	  	                	HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, GPIO_PIN_RESET);
 	  	                	HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, GPIO_PIN_RESET);
 	  	                    HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, GPIO_PIN_SET);
@@ -353,13 +350,14 @@ int main(void)
 	  	                	HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, GPIO_PIN_RESET);
 	  	                	display7SEG_Y(counter);
 	  	                	display7SEG_X(counter);
-	  	                    counter = 9;
+	  	                    counter = 10;
 	  	                    LED_Y_CAN_RUN = 0;
 	  	                }
+	  	                counter--;
 	  	                break;
 
 	  	            case 0:
-	  	                if (counter > 3) {
+	  	                if (counter > 2) {
 	  	                    HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, GPIO_PIN_SET);
 	  	                    HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, GPIO_PIN_RESET);
 	  	                    HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, GPIO_PIN_RESET);
@@ -373,10 +371,9 @@ int main(void)
 	  	                    HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, GPIO_PIN_SET);
 	  	                    HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, GPIO_PIN_RESET);
 	  	                    display7SEG_Y(counter);
-	  	                   	display7SEG_X(counter-3);
-	  	                    counter--;
+	  	                   	display7SEG_X(counter-2);
 	  	                }
-	  	                else if (counter <= 3 && counter > 1) {
+	  	                if (counter <= 2 && counter > 1) {
 	  	                    HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, GPIO_PIN_SET);
 	  	                    HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, GPIO_PIN_RESET);
 	  	                    HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, GPIO_PIN_RESET);
@@ -391,9 +388,8 @@ int main(void)
 	  	                    HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, GPIO_PIN_SET);
 	  	                    display7SEG_Y(counter);
 	  	                   	display7SEG_X(counter);
-	  	                    counter--;
 	  	                }
-	  	                else if (counter <= 1) {
+	  	                if (counter <= 1) {
 	  	                	HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, GPIO_PIN_SET);
 	  	                	HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, GPIO_PIN_RESET);
 	  	                	HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, GPIO_PIN_RESET);
@@ -408,9 +404,10 @@ int main(void)
 	  	                	HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, GPIO_PIN_SET);
 	  	                	display7SEG_Y(counter);
 	  	                    display7SEG_X(counter);
-	  	                    counter = 9;
+	  	                    counter = 10;
 	  	                    LED_Y_CAN_RUN = 1;
 	  	                }
+	  	                counter--;
 	  	                break;
 	  	        }
      HAL_Delay(1000);
